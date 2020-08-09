@@ -1,0 +1,25 @@
+.card {
+  display: grid;
+  border: 0.5px solid #e0e0e0;
+  max-width: 150px;
+  margin: auto;
+  text-align: center;
+  grid-template-areas: 'pic pic name name' 'pic pic name name';
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.card .user-pic {
+  grid-area: pic;
+}
+
+.card .user-pic img {
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+}
+
+.card .user-name {
+  grid-area: name;
+  width: 40%;
+}

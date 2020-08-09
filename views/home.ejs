@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/css/home1.css">
+<link rel="stylesheet" href="/css/user-card.css">
+<div class="main-div">
+    <%if(locals.user){%>
+    <div class="posts res-flex">
+        <main class="post-container">
+            <section id="feed-post">
+                <!-- <h4>
+                    Post
+                </h4> -->
+                <form action="/posts/create" id="new-post-form" method="POST">
+                    <textarea name="content" class="text" cols="30" rows="10" placeholder="Share Your Thoughts with Us"
+                        id="scroll" data-simplebar></textarea>
+                    <input type="submit" class="submit" value="post">
+                </form>
+
+            </section>
+        </main>
+    </div>
+    <%}%>
+    <div id="scroll" data-simplebar class="post-list-container res-flex">
+        <h4 style="text-align: center;">
+        Recent Post
+        </h4> 
+        <p>
+            <%for(post of posts){%>
+
+    <%- include('_post1')-%>
+
+    <%}%>
+        </p>
+    </div>
+    <div id="scroll" data-simplebar class="Users res-flex">
+        <section id = "user-list">
+            <h4>
+                Users
+            </h4>
+        <%for(u of all_user){%>
+
+    <ul>
+        <li>
+
+            <div class="card">
+                <!--  -->
+                <div class="user-pic">
+                    <%if(u.avatar){%>
+                    <img src="<%=u.avatar%>" alt="<%=u.name%>">
+                    <%}else{%>
+                    <img src="https://img.pngio.com/39692-png-images-pngio-avatarpng-512_512.png" alt="<%=u.name%>">
+                    <%}%>
+                    </div>
+                    <div class="user-name">
+                        <a href="/users/profile/<%=u.id%>"><h3><%=u.name%></h3></a>
+                </div>
+                <!--  -->
+            </div>
+        </li>
+    </ul>
+    <%}%>
+<script src='/js/home_post.js'></script>

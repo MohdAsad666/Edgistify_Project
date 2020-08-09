@@ -1,0 +1,143 @@
+<style>
+    div.wrap {
+        width: 90%;
+        margin: 0 auto 1em auto;
+        position: relative;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    div.wrap:first-child {
+        margin-top: 1em;
+    }
+
+    div.comment {
+        font-size: 1.2em;
+        position: relative;
+        margin-left: 60px;
+        border-radius: 0.75em 0.75em 0.75em 0.75em;
+        background-color: rgba(255, 255, 255, .15);
+        line-height: 1.4em;
+        font-family: Helvetica;
+    }
+
+    div.comment::before {
+        content: attr(data-owner);
+        border-radius: 0.75em 0.75em 0 0;
+        background-color: rgba(255, 255, 255, .15);
+        display: block;
+        text-indent: 10%;
+        background-color: rgba(255, 255, 255, .15);
+    }
+
+    div.comment::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        border: 10px solid transparent;
+        border-right: 10px solid #ccc;
+        margin: -10px 0 0 -20px;
+    }
+
+    div.comment p {
+        width: 80%;
+        margin: 0 auto 1em auto;
+        word-wrap: break-word
+    }
+
+    .avatar {
+        position: absolute;
+        top: 50%;
+        width: 50px;
+        float: left;
+        border-radius: 10px;
+        margin-top: -25px;
+    }
+
+    p+ul.postscript {
+        width: 80%;
+        font-size: 0.8em;
+        margin: -0.5em auto 0 auto;
+    }
+
+    ol.postscript::after {
+        content: '';
+        height: 0.5em;
+        display: block;
+        clear: both;
+    }
+
+    ol.postscript li {
+        float: left;
+        margin-right: 0.5em;
+    }
+
+    ol.postscript li.date {
+        float: right;
+        margin-right: 0;
+    }
+
+    .wrap a:link,
+    .wrap a:visited {
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #333;
+    }
+
+    .wrap a:hover,
+    .wrap a:active,
+    .wrap a:focus {
+        color: #f00;
+        border-bottom: 1px solid #f00;
+    }
+</style>
+<li id="post-<%=post._id%>">
+    <div class="wrap">
+        <%if(post.user.avatar){%>
+        <img class="avatar" src="<%=post.user.avatar%>" alt="<%=post.user.name%>">
+        <%}else{%>
+        <img class="avatar" src="https://img.pngio.com/39692-png-images-pngio-avatarpng-512_512.png"
+            alt="<%=post.user.name%>">
+        <%}%>
+        <div class="comment" data-owner="<%=post.user.name%> posted this">
+        <p>
+            <%=post.content%>
+        </p>
+        <ol class="postscript">
+            <!-- links and timestamp -->
+            <%if((locals.user)&&(post.user.id == locals.user.id)){%>
+            <li><a href="/posts/destroy/<%= post.id %>">delete</a></li>
+            <%}%>
+                <li>
+                    posted on <%=post._id.getTimestamp()%>
+</li>
+</li>
+</ol>
+</div>
+</div>
+<div id="post-comment">
+    <%if(locals.user){%>
+    <div class="comment-box" style="width: 100%; margin-left: 15%; ">
+        <form action="/comments/create" method="POST">
+            <input type="text" class="comment-text" name="content" style="border: 0.1px solid rgb(224,224,224);"
+                placeholder="Comment...">
+            <input type="hidden" name="post" value="<%=post._id%>">
+            <input type="submit" class="submit" value="comment">
+        </form>
+    </div>
+    <%}%>
+                <div class="post-comment-list">
+                    <ul id="post_comment-<%=post._id%>">
+
+    <%for(comment of post.comments){%>
+    <li>
+        <%-include('_comment1')-%>
+    </li>
+    <%}%>
+                    </ul>
+                </div>
+            </div>
+</li>

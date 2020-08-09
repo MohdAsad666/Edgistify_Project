@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="css/header.css">
+
+<header>
+
+    <nav class="nav-bar">
+        <ul>
+            <li>
+                <a href="/">
+                    <img class="logo" src="https://edgistify.com/assets/images/Edgistify_Logo.png">
+                </a>
+            </li>
+            <!-- <li class="cool-link">
+
+                Home
+                </a>
+            </li> -->
+            <% if (locals.user){ %>
+            <li class="cool-link">
+                <a href="/users/profile/<%=user._id%>">
+                    <%= user.name %>
+                </a>
+            </li class="cool-link">
+            <li class="cool-link">
+                <a href="/users/sign-out">Sign Out</a>
+            </li>
+            <% }else{ %>
+
+            <li class="cool-link">
+                <a href="/users/sign-in">Sign In</a>
+            </li>
+
+            <li class="cool-link">
+                <a href="/users/sign-up">Sign Up</a>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+</header>

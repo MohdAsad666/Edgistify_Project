@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/user_profile.css">
+<link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="/css/user-sign-in-up.css">
+<div class="signing">
+    <%if(profile_user.avatar){%>
+    <img src="<%=profile_user.avatar%>" alt="<%=profile_user.name%>">
+    <%}else{%>
+    <img src="https://img.pngio.com/39692-png-images-pngio-avatarpng-512_512.png" alt="<%=u.name%>">
+    <%}%>
+<section>
+    <%if(user.id == profile_user.id){%>
+    <form action="/users/update/<%=profile_user.id%>" enctype="multipart/form-data" method="POST">
+        <input type="text" name="name" value="<%=profile_user.name%>">
+        <input type="email" name="email" value="<%=profile_user.email%>" %>>
+        <input type="file" name="avatar" id="" placeholder="Profile Picture" accept='image/*'>
+        <input type="submit" value="Update">
+    </form>
+    <%}else{%>
+    <p><%= profile_user.name %></p>
+    <p><%= profile_user.email %></p>
+    <%}%>
+</section>
+</div>   

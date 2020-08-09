@@ -1,0 +1,38 @@
+.signing {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 3em;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.15);
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.signing img {
+  max-width: 350px;
+  max-height: 350px;
+}
+
+h2 {
+  margin-top: 0px;
+  font-family: Source Sans Pro;
+  font-weight: lighter;
+  color: black;
+  font-size: 50px;
+  text-align: center;
+}
+
+input {
+  display: block;
+  width: 320px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  font-family: Source Sans Pro;
+  font-weight: lighter;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
