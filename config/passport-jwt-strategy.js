@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 let opts = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey: 'codial'
+    secretOrKey: 'Edgistify'
 }
 passport.use(new JWTStrategy(opts, function (jwtpayload, done) {
     User.findById(jwtpayload._id, function (err, user) {
