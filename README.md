@@ -33,8 +33,11 @@ With this web application one can post a feed and either one itself or other reg
  1. After extracting Edgistify_Project.zip.
  
  2. Open Edgistify_Project folder in ide.
+
  
- 3. Type ``` nodemon index.js``` on the console.
+ 3. Type 
+ ``` nodemon index.js```
+ on the console.
  
  4. If thows error ```required stack not found``` type ``` npm i node-sass-middleware``` in console and install it, It should work fine.
  
