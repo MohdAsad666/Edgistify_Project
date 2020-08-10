@@ -34,7 +34,7 @@ With this web application one can post a feed and either one itself or other reg
  
 2. Open Edgistify_Project folder in ide.
 
-3. Type ```npm init``` and hit enter as long it asks for after its done.
+3. Type ```npm init``` and hit enter as long it asks forit, after its done.
  
 4. Type 
  ``` nodemon index.js```
