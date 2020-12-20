@@ -1,4 +1,4 @@
-# Practice Project
+# Lets Discuss Initial
 With this web application one can post a feed and either one itself or other registered user can comment in Post or if they want they can make their own feed.
 
 ## Technology Used
